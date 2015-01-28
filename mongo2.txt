@@ -1,0 +1,398 @@
+
+             _.-````'-,_                            
+   _,.,_ ,-'`           `'-.,_
+ /)     (\                   '``-.
+((      ) )                      `\
+ \)    (_/                        )\
+  |       /)           '    ,'    / \
+  `\    ^'            '     (    /  ))
+    |      _/\ ,     /    ,,`\   (  "`
+     \Y,   |  \  \  | ````| / \_ \
+       `)_/    \  \  )    ( >  ( >
+                \( \(     |/   |/
+    mic & dwb  /_(/_(    /_(  /_(
+
+
+
+
+
+
+# Rocka loss med MongoDB!  
+
+Magnus Gudmundsson 
+CyberDaDA
+
+(ascii art - http://www.chris.com/ascii/)
+
+
+
+#  Vad är MongoDB?
+
+	"Dokument Databas"  - Rich Document Structure
+	"Indexerbar Key Value Store på sterioder"
+	"Non Relational datastore for json documents"
+	"Schemaless"
+	
+	Men - Codd sa.... (tar den senare)
+	Ny verklighet - nya verktyg? 
+
+	Dokument - En struktur som associerar en nyckel med ett eller flera värden. 
+
+	Dokumentet i dokumentdatabasen kan innehålla 
+		key-value par 
+		key-array par 
+		och även andra dokument.
+
+Utvecklats sedan 2007. Version 1.0 2009
+Just nu version 2.6
+
+
+
+
+
+
+#Bakgrund 
+	LotusNotes
+	ObjectDatabaserna (som aldrig blev av)
+	XML för allt, Soapträsket. 
+	JSON to the resque
+
+
+
+
+
+#NOSQL explosion? (som aldrig blev av?)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Syntax
+
+Json (Eller Bson - en binär variant av Json med fler typer än bara sträng och flyttal)
+Allt är ett dokument. 
+
+
+INSERT 
+
+db.Person.insert( 
+		{
+			Name: "Magnus", 
+			Age: 45,
+			Status: "Top of the Pops",
+			Groups: ["C#", "Angular", "MongoDB"]
+		}
+)
+
+
+UPDATE 
+
+db.Person.update (                             
+		{Age: { $gt: 30 } }, 			  	
+		{ $set: { Status: 'Newbie' } },   	
+		{ multi: true }				   
+)
+
+//   Vilken Collection
+//   Vilka poster
+//	 Vilka fält
+//	 ett dokument eller alla som matchar (option)
+
+
+
+c# Driver
+BsonDocument
+BsonValue
+
+
+DELETE 
+
+db.Person.remove(
+		{Status: "Top of the Pops"}
+)
+
+
+SELECT
+
+db.users.find( )
+
+
++ 
+Save
+FindAndModify
+Bulk 
+
+Skip + Limit
+Två sköna modifierare.
+MEN varje gång du anropar skip,så kommer mongot först att 
+snurra igenom alla poster före skip.  
+(För bästa resultat - använd find med sort)
+
+
+# Rader och Snöflingor. 
+
+
+RDBMS - Dokumentdatabas
+
+Table 	--> 	Collection
+Row 	--> 	Document
+Column 	--> 	Field
+Join 	--> 	Embedded document
+Join 	--> 	Link/Reference
+Index 	--> 	Index
+
+
+
+
+Storleken har betydelse: 
+Kolumnnamnet lagras för varje dokument
+Max storlek på dokument : 16 MB  
+
+PowerOf2Sizes
+
+
+Aggregat Orienterad Databas  
+(Domain Driven Design E.Evans)
+
+trad : About the Data
+mongo : About the application
+
+
+Om vi vet hur datat kommer att accessas, så bygger vi schemat utifrån det. 
+Vilket ofta är en fördel. 
+men kan vara en nackdel om vi vill göra många "Ad hoc" frågor.
+
+
+
+#Relationsstrategier    (men Codd sa...)
+Schemafrihet - ett annat ord för att ingenting ha kvar?
+
+1:1
+1:M 
+M:M
+1: Ett fåtal
+1: Ganska Många...
+1: Gazillons
+etc.
+
+Det traditionella tabellorienterade schemabygget är en trygg hand som leder dig
+till en lösning som ofta är adekvat, men....
+
+Reality will not (always) be tableized
+
+Rörliga eller statiska relationer?
+Mycket skriv, lite läs? 
+Skriv en gång ändra sällan? 
+Skriv och ändra hela tiden?
+
+
+Embed eller referens?
+(Eller lite av varje....) 
+
+Häri ligger det svåra.
+
+
+
+Sparse index
+
+
+# C#  :)  
+
+-- Använd BsonDocument 
+alt. dina domänklasser 
+alt. mixa efter behov.  
+
+
+Vad har din kod för roll? 
+
+Huvudrollen eller bara 
+kugghjulet som forslar data ifrån servern till klienten?
+
+Kan koden vara lyckligt ovetande om domänmodellen? 
+
+Mix and match
+
+
+AdHoc fråga ifrån klienten där klienten dynamiskt deklarerar vilka kolumner man vill ha. 
+ 
+När du använder dig av domänobjekt så kommer C# drivern att hantera formateringen 
+av det json dokument som din kod levererar, 
+
+
+Ett problem: 
+Om din fråga inte resulterar i på förhand typade objekt så kommer eventulla ObjektId och datum att
+serialiseras så här: 
+ObjectId("a3a312b8493934884")
+När du jobbar med json objekt så har du begränsat kontroll över hur dokumentet serialiseras. 
+måste ev. göra lite handparsning. 
+
+
+# Indexering + indexering av arrayer
+
+Indexering 
+din vän $elemMatch()
+
+
+
+
+
+
+# Vad behövs?
+
+	http://www.mongodb.org/downloads
+	rtfm
+	nuget --> mongodb
+
+	+ ladda ner robomongo
+	robomongo.org
+	och/eller mongovue
+	bekanta dig med Mongoskalet
+	ha kul :) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Hur använda c#
+	(demo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// lite wild and crazy: 
+http://json-generator.appspot.com/
+chrome-extension://hgmloofddffdnphfgcellkdfbfbjeloo/RestClient.html
+http://localhost:17290/api/Booking
+
+
+I web apit: 
+
+  public void Save(string json) 
+        {
+            var collection = GetCollection("TwilightZone");
+            collection.Save(BsonDocument.Parse(json));
+           
+        }
+
+
+
+
+
+# Aggregat Framework
+
+För summeringar och grupperingar motsvarigheten till Sqls GROUP BY 
+som i UNIX världen så pipar man resultatet ifrån den ena operatorn till den andra.
+
+EX:
+db.users.aggregate(
+  [
+    { $project : { month_joined : { $month : "$joined" } } } ,
+    { $group : { _id : {month_joined:"$month_joined"} , number : { $sum : 1 } } },
+    { $sort : { "_id.month_joined" : 1 } }
+  ]
+)
+
+
+Komplext Ex: 
+
+
+
+# annat krafs (som vi inte ska snacka om)
+Capped collections
+Map Reduce
+Sharding
+GridFS
+Geospatial
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Länkar
+
+Artikelserie om MongoDB + ASP.NET MVC
+http://www.drdobbs.com/database/mongodb-with-c/240151668
+
+Artikelserie om MongoDB + C#
+http://danielwertheim.se/category/development/nosql/mongodb/
+
+
+
+c# Drivern
+https://jira.mongodb.org/browse/CSHARP?_ga=1.135557745.153026926.1420379629
+
+http://martinfowler.com/nosql.html
+http://www.mongodb.org/
+http://www.10gen.com/nosql
+
+O'Reilly Webcast: MongoDB Schema Design: How to Think Non-Relational
+http://www.youtube.com/watch?v=PIWVFUtBV1Q
+
+
+Introduction to NoSQL by Martin Fowler
+http://www.youtube.com/watch?v=qI_g07C_Q5I
+
+
+
+
+
+#Takeaway 
+
+
+NOSQL är inte heller någon silverkula
+men det kan vara väldigt användbart när det gäller vissa problem.
++ det är väldigt enkelt att modellera och komma fram snabbt med den. 
+
+Det jag gillar - ingen svart magi, lätt att förstå sig på efter den initiala kulturkroken.
+(om du som jag är uppväxt med Codds teorier)
+
+Ett verktyg som får dig att komma snabbare fram, och har förmågan att låta dig producera 
+mindre kod för att hantera datat är ett bra verktyg.
+
