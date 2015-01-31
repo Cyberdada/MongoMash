@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script stuff", "Script stuf
 		MongohellStuff.js = MongohellStuff.js
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDaDa.Formatter", "MongoDaDa.Formatter\MongoDaDa.Formatter.csproj", "{07066BF4-2937-4B27-9ED8-5C1583A84D01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android
@@ -200,6 +202,42 @@ Global
 		{345AA759-9FB5-45A2-A94C-2B43D2A08C4F}.Release|Windows-ARM.ActiveCfg = Release|Any CPU
 		{345AA759-9FB5-45A2-A94C-2B43D2A08C4F}.Release|Windows-x64.ActiveCfg = Release|Any CPU
 		{345AA759-9FB5-45A2-A94C-2B43D2A08C4F}.Release|Windows-x86.ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Android.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|iOS.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Windows Phone (Universal).ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Windows Phone 8.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Windows-AnyCPU.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Windows-ARM.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Windows-x64.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Debug|Windows-x86.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Android.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Any CPU.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Any CPU.Build.0 = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|iOS.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Mixed Platforms.Build.0 = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Windows Phone (Universal).ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Windows Phone 8.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Windows-AnyCPU.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Windows-ARM.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Windows-x64.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Distribution|Windows-x86.ActiveCfg = Debug|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Android.ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|iOS.ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Windows Phone (Universal).ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Windows Phone 8.ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Windows-AnyCPU.ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Windows-ARM.ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Windows-x64.ActiveCfg = Release|Any CPU
+		{07066BF4-2937-4B27-9ED8-5C1583A84D01}.Release|Windows-x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

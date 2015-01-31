@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdHocQuery.cs" />
     <Compile Include="Adress.cs" />
     <Compile Include="Booking.cs" />
     <Compile Include="Facility.cs" />

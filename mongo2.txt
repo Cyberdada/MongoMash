@@ -289,10 +289,10 @@ din vän $elemMatch()
 
 
 
-// lite wild and crazy: 
+ 
 http://json-generator.appspot.com/
 chrome-extension://hgmloofddffdnphfgcellkdfbfbjeloo/RestClient.html
-http://localhost:17290/api/Booking
+http://localhost:17290/api/TwilightZone/Add
 
 
 I web apit: 
@@ -304,7 +304,21 @@ I web apit:
            
         }
 
+Sök: 
+http://localhost:17290/api/TwilightZone/Search
 
+{
+    "fields": [
+	     "name",
+        "gender",
+        "eyeColor",
+        "company"
+
+    ],
+    "query": {
+        "eyeColor": "brown"
+    }
+}
 
 
 

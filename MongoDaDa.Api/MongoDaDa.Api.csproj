@@ -116,7 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\TwilightZoneController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -132,14 +132,19 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MongoDaDa.Data\MongoDaDa.Data.csproj">
       <Project>{7968f4b3-89e5-4609-af60-23ee7b6500a3}</Project>
       <Name>MongoDaDa.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MongoDaDa.Formatter\MongoDaDa.Formatter.csproj">
+      <Project>{07066bf4-2937-4b27-9ed8-5c1583a84d01}</Project>
+      <Name>MongoDaDa.Formatter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MongoDaDa.Model\MongoDaDa.Model.csproj">
+      <Project>{f352c5e1-9b7d-4fe7-84df-5dc051c7c249}</Project>
+      <Name>MongoDaDa.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
