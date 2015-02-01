@@ -160,9 +160,7 @@ namespace MongoDaDa.Data
 
         public void TidenÄrUrLed()
         {
-            //    c# driver by default (without extra settings) 
-            //saving local dates as utc date into database 
-           //(date - time zone offset) but reading back without any action (so, utc date).
+    
         }
 
        public void ReadingStuff()

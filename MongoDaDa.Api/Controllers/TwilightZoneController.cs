@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using MongoDaDa.Model;
 using MongoDaDa.Api;
 using MongoDaDa.Formatter;
+using System.Text;
 
 namespace MongoDaDa.Api.Controllers
 {
@@ -19,7 +20,7 @@ namespace MongoDaDa.Api.Controllers
         const string CollectionName = "TwilightZone";
   
 
-        // GET: api/Booking/5
+        
         public string Get(string id)
         {
             
@@ -28,7 +29,7 @@ namespace MongoDaDa.Api.Controllers
         }
 
         [HttpPost]
-        public string Search([FromBody] JToken jsonbody)
+        public HttpResponseMessage Search([FromBody] JToken jsonbody)
         {
             AdHocQuery adhoc = new AdHocQuery()
             {
@@ -36,8 +37,12 @@ namespace MongoDaDa.Api.Controllers
                 Query = jsonbody["query"].ToString()
             };
 
-            return BsonToJson.RinseBsonOutput
+            string myJson = BsonToJson.RinseBsonOutput
                 (new Data.Base().Find(adhoc,  CollectionName));
+
+            var response = this.Request.CreateResponse(HttpStatusCode.OK);
+            response.Content = new StringContent(myJson, Encoding.UTF8, "application/json");
+            return response;
         }
 
          [HttpPost]

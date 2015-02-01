@@ -111,6 +111,7 @@ db.Person.update (
 
 c# Driver
 BsonDocument
+BsonArray
 BsonValue
 
 
@@ -163,14 +164,14 @@ PowerOf2Sizes
 Aggregat Orienterad Databas  
 (Domain Driven Design E.Evans)
 
-trad : About the Data
-mongo : About the application
+trad: About the Data
+mongo: About the application
 
 
 Om vi vet hur datat kommer att accessas, så bygger vi schemat utifrån det. 
 Vilket ofta är en fördel. 
 men kan vara en nackdel om vi vill göra många "Ad hoc" frågor.
-
+eller om flera applikastioner med olika behov ska dela på databasen.
 
 
 #Relationsstrategier    (men Codd sa...)
