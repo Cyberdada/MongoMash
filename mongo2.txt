@@ -45,6 +45,7 @@ CyberDaDA
 
 Utvecklats sedan 2007. Version 1.0 2009
 Just nu version 2.6
+Version 3.0 släpps antagligen Q3 2015
 
 
 

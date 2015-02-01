@@ -7,6 +7,7 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using MongoDaDa.Model;
 using MongoDB.Driver.Builders;
+using MongoDB.Driver.Linq;
 
 namespace MongoDaDa.Data
 {
@@ -155,6 +156,14 @@ namespace MongoDaDa.Data
        //TODO!!
        public void LiteLinqGrejs()
         {
+        //  Exempel + Inject + Ett varningens pekfinger gällande select (endast clientside )
+        var collection = GetCollection("PersonDetails");
+           
+        var query =
+        from c in collection.AsQueryable<PersonDetails>()
+        where c.Name.EndsWith("us")
+        select c;
+        var result = query.ToList<PersonDetails>();
 
         }
 
