@@ -7,14 +7,38 @@ namespace MongoDB.Test
     [TestClass]
     public class TestPersonNr1
     {
+
+   
+
         [TestMethod]
-        private void SavePerson1()
+        public void SavePerson()
         {
             var person = new MongoDaDa.Data.Person();
             person.SaveBasics();
-            person.UpdateBasics();
-            person.ReadingStuff();
-            person.TidenÄrUrLed();
         }
+ 
+        [TestMethod]
+        public void UpdatePerson()
+        {
+            var person = new MongoDaDa.Data.Person();
+            person.UpdateBasics();
+
+        }
+
+        [TestMethod]
+        public void ReadStuff()
+        {
+            var person = new MongoDaDa.Data.Person();
+            person.ReadingStuff();
+
+        }
+        [TestMethod]
+        public void LinqStuff()
+        {
+            var person = new MongoDaDa.Data.Person();
+            person.LiteLinqGrejs();
+
+        }
+
     }
 }

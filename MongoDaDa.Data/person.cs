@@ -19,25 +19,19 @@ namespace MongoDaDa.Data
 
        public void SaveBasics()
        {
-
+           DropPersons();
            
            var collection = GetCollection(MyName);
            
            //Rensa bort gammalt skräp
-           collection.Drop();
-
+    
 
            var firstId = ObjectId.GenerateNewId();
            collection.Save(new PersonDetails 
            { 
                Id = firstId, 
                Name = "Magnus", 
-               DateOfBirth = new DateTime(1969, 03, 20) 
-           });
-           
-           collection.Save(new PersonDetails 
-           {
-               Id= firstId, 
+               DateOfBirth = new DateTime(1969, 03, 20),           
                Adress = new List<Model.Adress> 
                {
                    new Model.Adress {Street = "Vestmannabraut",Nr = 72,City = "Vestmannaeyjar",Country = "Island"}, 
@@ -61,8 +55,6 @@ namespace MongoDaDa.Data
            };
            collection.Save(ActorPerson);
 
-
-          collection.Save(new PersonDetails { Name = "Eivert", Id = ActorPerson.Id });
 
            collection.Insert(new PersonDetails { 
                Name = "Vlad Tepes", 
@@ -123,7 +115,7 @@ namespace MongoDaDa.Data
             var update = Update<PersonDetails>.Set(e => e.Name, "Gonzo"); // update modifiers
             collection.Update(query, update);
 
-
+            
             var query2 = Query<PersonDetails>.EQ(e => e.Name, "Magnus");
             var update2 = Update<PersonDetails>.Set(e => e.Adress, new List<Model.Adress>()); // update modifiers
             collection.Update(query2, update2);
@@ -155,44 +147,45 @@ namespace MongoDaDa.Data
        public void LiteLinqGrejs()
         {
         //  Exempel + Inject + Ett varningens pekfinger gällande select (endast clientside )
-        var collection = GetCollection("PersonDetails");
+        var collection = GetCollection(MyName);
            
         var query =
         from c in collection.AsQueryable<PersonDetails>()
-        where c.Name.EndsWith("us")
+        where c.Name =="Magnus"
         select c;
         var result = query.ToList<PersonDetails>();
 
+           //Alternativt
+
+       var res2 = collection
+           .FindAs<PersonDetails>(Query<PersonDetails>
+           .EQ(e => e.Name, "Magnus")).ToList();
+
+
         }
 
-        public void TidenÄrUrLed()
-        {
     
-        }
-
        public void ReadingStuff()
         {
 
 
             var PersonCollection = GetCollection(MyName);
-
-
-           // Vi kan välja att strunta i alla objekt och bara agera 
-           // som någonslags "pass through" var uppgift är att ställa frågor emot DB + 
-           //ev. köra nestlade loopar för joins.  
             var docs = PersonCollection.FindAs<BsonDocument>(Query.GT("_id", "000000000000000")).ToList();
 
-           // Eller så kan vi typa allt ihop, men då måste vi anpassa oss. 
-           // det är svårt när ett fält ibland används som en array, 
-           // och ibland som en sträng....
-
            var personaxs = PersonCollection.FindAllAs<PersonDetails>(); 
-            var personlist2 = personaxs.ToList();
+           var personlist2 = personaxs.ToList();
            var WhatIsTheCatch = personlist2[2].CatchAll;
 
         }
 
 
 
+
+       public void DropPersons()
+       {
+           var collection = GetCollection(MyName);
+           collection.Drop();
+
+       }
     }
 }
