@@ -8,7 +8,7 @@ namespace MongoDB.Test
     public class TestPersonNr1
     {
         [TestMethod]
-        public void SavePerson1()
+        private void SavePerson1()
         {
             var person = new MongoDaDa.Data.Person();
             person.SaveBasics();

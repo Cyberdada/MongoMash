@@ -62,9 +62,7 @@ namespace MongoDaDa.Data
            collection.Save(ActorPerson);
 
 
-
-
-           collection.Save(new PersonDetails { Name = "Eivert", Id = ActorPerson.Id });
+          collection.Save(new PersonDetails { Name = "Eivert", Id = ActorPerson.Id });
 
            collection.Insert(new PersonDetails { 
                Name = "Vlad Tepes", 

@@ -43,6 +43,8 @@ CyberDaDA
 		key-array par 
 		och även andra dokument.
 
+
+MongoDB
 Utvecklats sedan 2007. Version 1.0 2009
 Just nu version 2.6
 Version 3.0 släpps antagligen Q3 2015
@@ -324,7 +326,7 @@ http://localhost:17290/api/TwilightZone/Search
 
 
 
-# Aggregat Framework
+# Aggregate Framework
 
 För summeringar och grupperingar motsvarigheten till Sqls GROUP BY 
 som i UNIX världen så pipar man resultatet ifrån den ena operatorn till den andra.
@@ -372,6 +374,7 @@ Geospatial
 
 
 # Länkar
+http://www.mongodb.org/
 
 Artikelserie om MongoDB + ASP.NET MVC
 http://www.drdobbs.com/database/mongodb-with-c/240151668
@@ -379,13 +382,12 @@ http://www.drdobbs.com/database/mongodb-with-c/240151668
 Artikelserie om MongoDB + C#
 http://danielwertheim.se/category/development/nosql/mongodb/
 
-
-
 c# Drivern
 https://jira.mongodb.org/browse/CSHARP?_ga=1.135557745.153026926.1420379629
 
+NoSQL
 http://martinfowler.com/nosql.html
-http://www.mongodb.org/
+
 http://www.10gen.com/nosql
 
 O'Reilly Webcast: MongoDB Schema Design: How to Think Non-Relational
